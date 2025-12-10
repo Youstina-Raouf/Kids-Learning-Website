@@ -1,0 +1,98 @@
+.create-lab {
+  min-height: 100vh;
+  padding: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.create-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.create-header h1 {
+  font-size: 36px;
+  margin: 16px 0 8px;
+  color: var(--text-primary);
+}
+
+.create-header p {
+  color: var(--text-secondary);
+  font-size: 18px;
+}
+
+.create-form {
+  background: white;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 4px 16px var(--shadow);
+}
+
+.form-section {
+  margin-bottom: 32px;
+}
+
+.form-section label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--text-primary);
+}
+
+.type-selector {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.type-option {
+  flex: 1;
+  min-width: 120px;
+  padding: 20px;
+  border: 3px solid var(--border);
+  border-radius: 16px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.type-option:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.type-option.active {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: white;
+}
+
+.type-emoji {
+  font-size: 32px;
+}
+
+.code-input {
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .create-lab {
+    padding: 16px;
+  }
+
+  .create-form {
+    padding: 20px;
+  }
+
+  .type-selector {
+    flex-direction: column;
+  }
+}
+

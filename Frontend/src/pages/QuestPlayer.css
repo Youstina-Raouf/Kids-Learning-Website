@@ -1,0 +1,162 @@
+.quest-player {
+  min-height: 100vh;
+  padding: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.quest-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.quest-header {
+  margin-bottom: 32px;
+}
+
+.quest-header h1 {
+  font-size: 32px;
+  margin: 16px 0;
+  color: var(--text-primary);
+}
+
+.quest-progress-bar {
+  width: 100%;
+  height: 12px;
+  background: var(--bg-tertiary);
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 16px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+}
+
+.quest-progress-text {
+  text-align: center;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.quest-content {
+  margin-top: 32px;
+}
+
+.step-card {
+  background: white;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 4px 16px var(--shadow);
+}
+
+.step-header {
+  margin-bottom: 24px;
+}
+
+.step-header h2 {
+  font-size: 28px;
+  color: var(--primary);
+}
+
+.step-instruction {
+  margin-bottom: 24px;
+}
+
+.step-instruction p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text-primary);
+}
+
+.step-hint {
+  background: #FEF3C7;
+  border-left: 4px solid var(--warning);
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.hint-label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.step-answer {
+  margin-bottom: 24px;
+}
+
+.step-answer label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.quest-completed {
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px var(--shadow);
+}
+
+.completion-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+}
+
+.quest-completed h2 {
+  font-size: 36px;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.quest-completed p {
+  font-size: 18px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+.rewards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  margin: 32px 0;
+}
+
+.reward-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.reward-icon {
+  font-size: 24px;
+}
+
+@media (max-width: 768px) {
+  .quest-player {
+    padding: 16px;
+  }
+
+  .step-card {
+    padding: 20px;
+  }
+
+  .step-instruction p {
+    font-size: 16px;
+  }
+}
+
