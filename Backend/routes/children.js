@@ -53,18 +53,22 @@ router.post('/', auth, requireRole('parent', 'educator', 'admin'), [
 });
 
 // @route   GET /api/children
-// @desc    Get all children (for parent/educator)
+// @desc    Get children (for parent/educator/admin)
 // @access  Private
 router.get('/', auth, requireRole('parent', 'educator', 'admin'), async (req, res) => {
   try {
-    let children;
+    let childrenQuery;
+
     if (req.role === 'parent') {
-      children = await Child.find({ parentId: req.userId });
+      childrenQuery = Child.find({ parentId: req.userId });
     } else if (req.role === 'educator') {
-      children = await Child.find({ educatorIds: req.userId });
+      // For now, educators see all children to simplify assignment
+      childrenQuery = Child.find();
     } else {
-      children = await Child.find();
+      childrenQuery = Child.find();
     }
+
+    const children = await childrenQuery.populate('parentId', 'name email');
     res.json(children);
   } catch (error) {
     res.status(500).json({ message: error.message });

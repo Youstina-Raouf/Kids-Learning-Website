@@ -27,6 +27,10 @@ const gameSchema = new mongoose.Schema({
     enum: ['3-5', '6-8', '9-12'],
     required: true
   },
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
   thumbnail: {
     type: String,
     required: true

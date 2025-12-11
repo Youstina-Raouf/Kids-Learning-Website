@@ -22,6 +22,15 @@ const GameCatalog = () => {
     { id: 'coding', name: 'Coding', emoji: '💻' }
   ]
 
+  const subjectGameUrls = {
+    math: 'https://www.mathplayground.com/number_bonds_10.html',
+    language: 'https://www.roomrecess.com/mobile/WordToss/play.html',
+    coding: 'https://blockly.games/maze',
+    physics: 'https://phet.colorado.edu/sims/html/balancing-act/latest/balancing-act_en.html',
+    chemistry: 'https://phet.colorado.edu/sims/html/build-a-molecule/latest/build-a-molecule_en.html',
+    general: 'https://www.coolmathgames.com/'
+  }
+
   useEffect(() => {
     fetchGames()
   }, [])
@@ -36,9 +45,7 @@ const GameCatalog = () => {
 
   const fetchGames = async () => {
     try {
-      const res = await api.get('/games', {
-        params: { ageBand: user?.ageBand }
-      })
+      const res = await api.get('/games')
       setGames(res.data)
       setFilteredGames(res.data)
     } catch (error) {
@@ -48,18 +55,9 @@ const GameCatalog = () => {
     }
   }
 
-  const handleGameClick = async (gameId) => {
-    try {
-      // Get quests for this game
-      const res = await api.get(`/games/${gameId}/quests`)
-      if (res.data.length > 0) {
-        navigate(`/quest/${res.data[0]._id}`)
-      } else {
-        alert('No quests available for this game yet!')
-      }
-    } catch (error) {
-      console.error('Error fetching quests:', error)
-    }
+  const handleGameClick = (game) => {
+    const url = subjectGameUrls[game.subject] || subjectGameUrls.general
+    window.open(url, '_blank')
   }
 
   if (loading) {
@@ -104,7 +102,7 @@ const GameCatalog = () => {
               <div
                 key={game._id}
                 className="game-card-large"
-                onClick={() => handleGameClick(game._id)}
+                onClick={() => handleGameClick(game)}
               >
                 <div className="game-thumbnail-large">
                   {game.thumbnail || '🎮'}

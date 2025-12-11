@@ -7,7 +7,9 @@ import ChildDashboard from './pages/ChildDashboard'
 import ParentDashboard from './pages/ParentDashboard'
 import AddChild from './pages/AddChild'
 import EducatorDashboard from './pages/EducatorDashboard'
+import EducatorCreateGame from './pages/EducatorCreateGame'
 import GameCatalog from './pages/GameCatalog'
+import SimpleMathGame from './pages/SimpleMathGame'
 import QuestPlayer from './pages/QuestPlayer'
 import CreateLab from './pages/CreateLab'
 import Leaderboard from './pages/Leaderboard'
@@ -44,10 +46,20 @@ function App() {
               <EducatorDashboard />
             </ProtectedRoute>
           } />
+          <Route path="/educator/games/new" element={
+            <ProtectedRoute allowedRoles={['educator']}>
+              <EducatorCreateGame />
+            </ProtectedRoute>
+          } />
           
           <Route path="/games" element={
             <ProtectedRoute allowedRoles={['child']}>
               <GameCatalog />
+            </ProtectedRoute>
+          } />
+          <Route path="/games/simple-math" element={
+            <ProtectedRoute allowedRoles={['child']}>
+              <SimpleMathGame />
             </ProtectedRoute>
           } />
           
